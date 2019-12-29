@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="481" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="227d8d1f-b717-4d94-9a12-251a494e7ff2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="gambar" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     dt_simpanan.`idsimpanan` AS dt_simpanan_idsimpanan,
+     dt_simpanan.`tgl` AS dt_simpanan_tgl,
+     dt_simpanan.`idanggota` AS dt_simpanan_idanggota,
+     dt_simpanan.`nama` AS dt_simpanan_nama,
+     dt_simpanan.`simpananwajib` AS dt_simpanan_simpananwajib,
+     dt_simpanan.`simpanansukarela` AS dt_simpanan_simpanansukarela
+FROM
+     `dt_simpanan` dt_simpanan
+WHERE
+     idsimpanan LIKE '%$P!{id}%']]>
+	</queryString>
+	<field name="dt_simpanan_idsimpanan" class="java.lang.String"/>
+	<field name="dt_simpanan_tgl" class="java.lang.String"/>
+	<field name="dt_simpanan_idanggota" class="java.lang.String"/>
+	<field name="dt_simpanan_nama" class="java.lang.String"/>
+	<field name="dt_simpanan_simpananwajib" class="java.lang.String"/>
+	<field name="dt_simpanan_simpanansukarela" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="48" y="0" width="189" height="79" uuid="7558ec7f-401f-432e-9153-8456be427585"/>
+				<imageExpression><![CDATA[$P{gambar}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="160" y="32" width="371" height="33" uuid="cb4e846e-756e-413c-8cb6-a0b2ab92fa0f"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KOPERASI PT.TUJUH UTAMA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="77" splitType="Stretch">
+			<staticText>
+				<reportElement x="213" y="18" width="114" height="22" uuid="a4e08294-56d6-4144-8769-6178713971bb"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bukti Simpanan]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="4" width="555" height="1" uuid="f8935022-78f8-4ad1-8847-4ce0cd2ab707"/>
+			</line>
+			<line>
+				<reportElement x="0" y="65" width="555" height="1" uuid="999c1b8f-95d7-439f-89ca-c8200bcc0154"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="10085c2f-4577-4eaf-9616-aa69b4f0a4e4"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[ID. Simpanan	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="92445a2b-eb6a-48df-b4d1-a10ff6731233"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_simpanan_idsimpanan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="20" uuid="f6653b43-5bfd-4727-b440-500ad9ccc540"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Tanggal		:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="20" width="100" height="20" uuid="8cd64d5b-54c4-449f-a18d-94e1b1c06b0a"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_simpanan_tgl}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="52" splitType="Stretch">
+			<textField>
+				<reportElement x="100" y="12" width="100" height="20" uuid="7749f422-84f0-46e4-bf75-024bc15444a8"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_simpanan_idanggota}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="12" width="100" height="20" uuid="ef01e587-09e3-4b46-8af1-8552d1a20ad5"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[ID. Anggota	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="32" width="100" height="20" uuid="a792360c-c93d-463f-bbe2-a915728f1c1e"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_simpanan_nama}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="32" width="100" height="20" uuid="cd45e0ea-a1db-4bee-81bf-1fc192cd174f"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Nama		:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="12" width="100" height="20" uuid="2f1d4a10-7af1-4827-8094-2c0975ef9a37"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_simpanan_simpananwajib}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="317" y="12" width="138" height="20" uuid="0897e7b5-4a9a-480c-91ff-846c1bf62b0b"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Simpanan Wajib	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="32" width="100" height="20" uuid="b245da83-85c5-4c00-b18b-c504abad8ef1"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_simpanan_simpanansukarela}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="317" y="32" width="138" height="20" uuid="f0ed6246-48ca-42a8-9a4a-d4dbf4ea7ed9"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Simpanan Sukarela	:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="7" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="6" splitType="Stretch"/>
+	</summary>
+</jasperReport>

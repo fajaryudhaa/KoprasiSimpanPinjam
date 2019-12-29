@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="378" pageHeight="265" columnWidth="338" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="306f2266-c0ee-4335-9110-8142b1751204">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="tgl" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="gambar" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     dt_anggota.`id` AS dt_anggota_id,
+     dt_anggota.`nama` AS dt_anggota_nama,
+     dt_anggota.`tempatlahir` AS dt_anggota_tempatlahir,
+     dt_anggota.`tgllahir` AS dt_anggota_tgllahir,
+     dt_anggota.`alamat` AS dt_anggota_alamat,
+     dt_anggota.`notlp` AS dt_anggota_notlp,
+     dt_anggota.`tglmasuk` AS dt_anggota_tglmasuk
+FROM
+     `dt_anggota` dt_anggota
+WHERE
+     id
+ LIKE '%$P!{tgl}%']]>
+	</queryString>
+	<field name="dt_anggota_id" class="java.lang.String"/>
+	<field name="dt_anggota_nama" class="java.lang.String"/>
+	<field name="dt_anggota_tempatlahir" class="java.lang.String"/>
+	<field name="dt_anggota_tgllahir" class="java.lang.String"/>
+	<field name="dt_anggota_alamat" class="java.lang.String"/>
+	<field name="dt_anggota_notlp" class="java.lang.String"/>
+	<field name="dt_anggota_tglmasuk" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="3" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="3" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="155" splitType="Stretch">
+			<textField>
+				<reportElement x="230" y="135" width="100" height="20" uuid="5d4637cd-60bc-4618-90d9-ac5203c6ca97"/>
+				<textFieldExpression><![CDATA[$F{dt_anggota_tglmasuk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="116" width="100" height="20" uuid="c6d8c53d-ef17-4a1d-8446-175c6b9828f4"/>
+				<textFieldExpression><![CDATA[$F{dt_anggota_notlp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="76" width="100" height="20" uuid="4e4f99ba-3218-481e-b52f-adccc12ca8ea"/>
+				<text><![CDATA[Tgl. Lahir	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="230" y="56" width="100" height="20" uuid="16790adc-2b0b-4be7-8dbe-a3bd592426bd"/>
+				<textFieldExpression><![CDATA[$F{dt_anggota_tempatlahir}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="56" width="100" height="20" uuid="f47bee57-6ca3-44aa-a883-a5efa46178f5"/>
+				<text><![CDATA[Tempat Lahir	:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="135" width="100" height="20" uuid="e8252267-53c2-44b0-8bfb-76d161bf6037"/>
+				<text><![CDATA[Tgl. Masuk	:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="20" width="100" height="20" uuid="de60b930-6d51-43da-9711-17ec8a650631"/>
+				<text><![CDATA[ID		;]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="230" y="20" width="100" height="20" uuid="3717d2f6-0387-490e-954e-350ccfbb53cf"/>
+				<textFieldExpression><![CDATA[$F{dt_anggota_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="96" width="100" height="20" uuid="c0682d73-0820-43bc-b98a-d3b6eca14dd8"/>
+				<text><![CDATA[Alamat		:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="230" y="96" width="100" height="20" uuid="3f100660-8c7a-41da-84cc-17f5893ae05b"/>
+				<textFieldExpression><![CDATA[$F{dt_anggota_alamat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="76" width="100" height="20" uuid="3abd5df3-5f7d-4292-8de3-73d8d746ace4"/>
+				<textFieldExpression><![CDATA[$F{dt_anggota_tgllahir}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="36" width="100" height="20" uuid="d79e6a29-e42c-4bc2-96d4-5f7ce5a937c9"/>
+				<textFieldExpression><![CDATA[$F{dt_anggota_nama}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="130" y="37" width="100" height="20" uuid="b14663dd-69dc-403c-bd04-dee23668db33"/>
+				<text><![CDATA[Nama		:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="115" width="100" height="20" uuid="c26a3c1a-ed22-481b-9807-0e6ef323d5ba"/>
+				<text><![CDATA[No. Telepon	:]]></text>
+			</staticText>
+			<image>
+				<reportElement x="12" y="20" width="99" height="76" uuid="90213781-2a6c-4134-8bfe-0111dd7a4bfe"/>
+				<imageExpression><![CDATA[$P{gambar}]]></imageExpression>
+			</image>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="5" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="3" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="2" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="3" splitType="Stretch"/>
+	</summary>
+</jasperReport>

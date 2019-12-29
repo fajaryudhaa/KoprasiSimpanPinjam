@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="1139" pageHeight="595" orientation="Landscape" columnWidth="1099" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6ae5420b-93ff-4c52-9765-0ade27afa7dc">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="bulan" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tahun" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="gambar" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     dt_angsuran.`idangsuran` AS dt_angsuran_idangsuran,
+     dt_angsuran.`tgl` AS dt_angsuran_tgl,
+     dt_angsuran.`idpinjaman` AS dt_angsuran_idpinjaman,
+     dt_angsuran.`tglpinjaman` AS dt_angsuran_tglpinjaman,
+     dt_angsuran.`totalpinjaman` AS dt_angsuran_totalpinjaman,
+     dt_angsuran.`lamapinjaman` AS dt_angsuran_lamapinjaman,
+     dt_angsuran.`idanggota` AS dt_angsuran_idanggota,
+     dt_angsuran.`nama` AS dt_angsuran_nama,
+     dt_angsuran.`angsuranke` AS dt_angsuran_angsuranke,
+     dt_angsuran.`angsuran` AS dt_angsuran_angsuran,
+     dt_angsuran.`jmlangsuran` AS dt_angsuran_jmlangsuran,
+     dt_angsuran.`totalangsuran` AS dt_angsuran_totalangsuran,
+     dt_angsuran.`sisaangsuran` AS dt_angsuran_sisaangsuran
+FROM
+     `dt_angsuran` dt_angsuran
+WHERE
+tgl
+BETWEEN
+$P{bulan}
+AND
+$P{tahun}]]>
+	</queryString>
+	<field name="dt_angsuran_idangsuran" class="java.lang.String"/>
+	<field name="dt_angsuran_tgl" class="java.lang.String"/>
+	<field name="dt_angsuran_idpinjaman" class="java.lang.String"/>
+	<field name="dt_angsuran_tglpinjaman" class="java.lang.String"/>
+	<field name="dt_angsuran_totalpinjaman" class="java.lang.String"/>
+	<field name="dt_angsuran_lamapinjaman" class="java.lang.String"/>
+	<field name="dt_angsuran_idanggota" class="java.lang.String"/>
+	<field name="dt_angsuran_nama" class="java.lang.String"/>
+	<field name="dt_angsuran_angsuranke" class="java.lang.String"/>
+	<field name="dt_angsuran_angsuran" class="java.lang.String"/>
+	<field name="dt_angsuran_jmlangsuran" class="java.lang.String"/>
+	<field name="dt_angsuran_totalangsuran" class="java.lang.String"/>
+	<field name="dt_angsuran_sisaangsuran" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="253" y="0" width="189" height="79" uuid="77bef8ef-1e88-4291-9579-5855b80177bb"/>
+				<imageExpression><![CDATA[$P{gambar}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="365" y="32" width="371" height="33" uuid="2e473d0c-20c9-4d7f-a4a6-5073e86ce5c9"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KOPERASI PT.TUJUH UTAMA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="72" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="4" width="1099" height="1" uuid="4b9746f0-0a78-4487-9376-e27c782b704b"/>
+			</line>
+			<line>
+				<reportElement x="0" y="66" width="1099" height="1" uuid="ce2fdde3-696e-48ed-a6e5-0229fad7cf55"/>
+			</line>
+			<textField>
+				<reportElement x="615" y="39" width="100" height="20" uuid="08327d74-aeba-4992-b578-462758d34d36"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tahun}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="563" y="39" width="52" height="20" uuid="333f6e28-a54c-4f9c-851a-0bd3d8520c08"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tahun	:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="458" y="17" width="180" height="22" uuid="56f44b60-bcf8-496b-899a-216dbe7fcfdc"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Data Angsuran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="424" y="39" width="52" height="20" uuid="f58bb892-dc52-47dc-a6b9-88fcb8c6e471"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bulan	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="476" y="39" width="69" height="20" uuid="3277eaa3-3036-4c0e-a046-e9b75c8b1200"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{bulan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="64" height="20" uuid="f2f847d9-43ba-411a-858b-131e65882017"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID. Angsuran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="64" y="0" width="100" height="20" uuid="37702c1f-acda-4f0d-9885-fdd0359ef023"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[dt_angsuran_tgl]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="0" width="64" height="20" uuid="69f8d279-22b1-4c4e-93d6-79abdd27e0c0"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID. Pinjaman]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="228" y="0" width="100" height="20" uuid="f60b32ee-7141-4e08-bf4d-1abd84eb0b09"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[dt_angsuran_tglpinjaman]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="328" y="0" width="100" height="20" uuid="1d138e84-450e-4cc5-80bc-77584dfe770c"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[dt_angsuran_totalpinjaman]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="428" y="0" width="69" height="20" uuid="447fb081-0c57-451f-a46b-c57dbd10127d"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lama Pinjam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="497" y="0" width="59" height="20" uuid="c4da9207-183f-4b9f-823e-ec0e89890003"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID. Anggota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="556" y="0" width="100" height="20" uuid="b791b239-d232-44f8-8010-9603fab063f2"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[dt_angsuran_nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="656" y="0" width="69" height="20" uuid="4afd2ec7-627e-4dec-8632-efc4e668e2f7"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Angsuran Ke]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="725" y="0" width="100" height="20" uuid="e355f294-28bd-4442-9acd-3471d706fb08"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[dt_angsuran_angsuran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="825" y="0" width="100" height="20" uuid="6654789c-1efc-431c-8575-172dc0263ade"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[dt_angsuran_jmlangsuran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="925" y="0" width="100" height="20" uuid="a73d474a-f7a8-48b7-901b-d558823831e7"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[dt_angsuran_totalangsuran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1025" y="0" width="74" height="20" uuid="370886dd-ca0e-4950-ae87-3f6be5bc4fb0"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sisa Angsuran]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="64" height="20" uuid="871f90ea-aa5a-443b-a995-31bff5c7fcc9"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_angsuran_idangsuran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="64" y="0" width="100" height="20" uuid="9bcd8b45-2849-4552-9415-4d32bbdbefbf"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_angsuran_tgl}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="0" width="64" height="20" uuid="55da9676-7e3c-45ab-bbf8-6637e4a5fb2a"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_angsuran_idpinjaman}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="0" width="100" height="20" uuid="a0013528-c50e-43fa-b76c-cc54b4a83ee6"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_angsuran_tglpinjaman}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="328" y="0" width="100" height="20" uuid="3d7565b3-7e2d-4760-9f95-51e10a0ea88f"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_angsuran_totalpinjaman}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="428" y="0" width="69" height="20" uuid="48e4909d-99b3-4c6b-9eb2-117d64bbb994"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_angsuran_lamapinjaman}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="497" y="0" width="59" height="20" uuid="0eac6a59-d160-4b89-837c-e5fd9e7368ed"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_angsuran_idanggota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="556" y="0" width="100" height="20" uuid="72af9326-9229-4183-8ffe-f150b3e69aa2"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_angsuran_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="656" y="0" width="69" height="20" uuid="df5cb896-0a5d-4c25-af30-ecb8791c1857"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_angsuran_angsuranke}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="725" y="0" width="100" height="20" uuid="d14e7544-4089-4495-adce-beacb498f291"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_angsuran_angsuran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="825" y="0" width="100" height="20" uuid="73d7d8c7-794c-4465-8f54-cfb2e5810d85"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_angsuran_jmlangsuran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="925" y="0" width="100" height="20" uuid="8434c405-b5cf-4924-b909-83403525600e"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_angsuran_totalangsuran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1025" y="0" width="74" height="20" uuid="fec289ed-8d3f-4f2a-88c8-9b612864aae4"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dt_angsuran_sisaangsuran}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="159" splitType="Stretch">
+			<staticText>
+				<reportElement x="963" y="129" width="100" height="20" uuid="5a7bb609-2596-455e-a46e-b6023c7a943c"/>
+				<text><![CDATA[Kepala Biro USDM/IT]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="963" y="28" width="126" height="20" uuid="3526cefa-cfad-423d-9e3e-16e268d99cb8"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Jakarta, "+new SimpleDateFormat("dd MMMMM yyyy",new java.util.Locale("id")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="963" y="128" width="111" height="1" uuid="2da5a28e-dd62-416b-9abf-4b3cd7fa7604"/>
+			</line>
+			<staticText>
+				<reportElement x="964" y="109" width="100" height="20" uuid="63b16207-eaaf-4b6c-a764-b30a1c5858f9"/>
+				<text><![CDATA[Sukiyo, S.Kom]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="4" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="6" splitType="Stretch"/>
+	</summary>
+</jasperReport>
